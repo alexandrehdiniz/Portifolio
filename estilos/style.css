@@ -1,0 +1,389 @@
+@charset "UTF-9";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    --font01: "Outfit", sans-serif;
+
+    --cor01: #05090D;
+    --cor02: #0F1B26;
+    --cor03: #A8B6BF;
+    --cor04: #F2F1EB;
+    --cor05: #001945;
+    --cor06: #00276B;
+    --cor07: #0056EB;
+    --cor08: #00AFEC;
+    --cor09: #5CBDEA;
+    --cor10: #474F5B;
+    --cor11: #131313;
+    --cor12: #10101a;
+}
+
+/* CONFIG GERAL */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99, 102, 241, 0.25), transparent 70%), #000000; */
+    background: var(--cor01);
+    font-family: var(--font01);
+    height: 100vh;
+}
+
+.flex {
+    display: flex;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+main section {
+    scroll-margin-top: 100px; /* altura aproximada do header */
+}
+/* CONFIG GERAL */
+
+/* CONFIG HEADER DESKTOP */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 4%;
+    background: var(--cor01);
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--cor09), transparent);
+}
+
+header > .interface {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-desktop {
+    width: 100%;
+    background-color: var(--cor02);
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px var(--cor02);
+}
+
+.menu-desktop ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--cor09);
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.5s;
+}
+header nav.menu-desktop a:hover {
+    color: var(--cor04);
+    transform: scale(1.2);
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav.menu-desktop ul li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+.borda {
+    position: relative;
+    padding-bottom: 20px;
+}
+.borda::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--cor09), transparent);
+}
+/* CONFIG HEADER DESKTOP */
+
+/* CONFIG SOBRE */
+section.sobre {
+    margin-top: 80px;
+    padding: 40px 4%;
+}
+
+section.sobre .flex {
+    align-items: center;
+    justify-content: center;
+}
+
+.sobre .img-sobre img {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    border: 4px solid var(--cor08);
+    box-shadow: 0px 0px 15px var(--cor08);
+    border-radius: 10px;
+}
+
+.sobre .txt-sobre {
+    color: var(--cor04);
+}
+
+.sobre .txt-sobre h1 {
+    font-size: 2.1em;
+    font-weight: 800;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+.sobre .txt-sobre span {
+    color: var(--cor08);
+}
+
+.sobre .txt-sobre p {
+    font-size: 1.2em;
+    text-align: justify;
+}
+
+.sobre .txt-sobre .btn-social button {
+    width: 90px;
+    height: 40px;
+    margin-top: 25px;
+    margin-right: 15px;
+    border: none;
+    border-radius: 5px;
+    color: var(--cor02);
+    background-color: var(--cor08);
+    cursor: pointer;
+    transition: .7s;
+    font-size: 1.8em;
+}
+
+.sobre .txt-sobre .btn-social button:hover {
+    transform: scale(1.2);
+    color: var(--cor08);
+    background-color: var(--cor02);
+    border: 2px solid var(--cor08);
+    box-shadow: 0px 0px 5px var(--cor08);
+}
+/* CONFIG SOBRE */
+
+/* CONFIG ESPECIALIDADES */
+.especialidades h1 {
+    color: var(--cor04);
+    font-size: 2.1em;
+    margin-bottom: 20px;
+}
+
+.especialidades span {
+    color: var(--cor08);
+}
+
+.especialidades article {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.especialidades .especialidades-box {
+    background-color: var(--cor12);
+    border-radius: 15px;
+    color: var(--cor08);
+    width: 100%;
+    padding: 25px;
+}
+
+.especialidades .especialidades-box .skill {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.especialidades .especialidades-box i {
+    font-size: 60px;
+    color: var(--cor12);
+    background-color: var(--cor08);
+    border-radius: 5px;
+    padding: 2px 6px;
+}
+
+.especialidades .especialidades-box h3 {
+    font-size: 25px;
+}
+
+.especialidades .especialidades-box p {
+    margin-top: 10px;
+    color: var(--cor04);
+    text-align: justify;
+}
+/* CONFIG ESPECIALIDADES */
+
+/* CONFIG PROJETOS */
+.projetos {
+    margin-top: 10px;
+}
+
+.projetos h1 {
+  color: var(--cor04);
+  font-size: 2.1em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.projetos span {
+  color: var(--cor08);
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.cards-container {
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  height: 600px;
+  perspective: 1000px;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 80%;
+  height: 100%;
+  transform: translateX(-50%) scale(0.8);
+  background: var(--cor12);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.card.active {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  z-index: 3;
+}
+
+.card.left {
+  transform: translateX(-130%) scale(0.7);
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.card.right {
+  transform: translateX(30%) scale(0.7);
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.controls button {
+  background: #5CBDEA;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.controls button:hover {
+  background: #409dc7;
+}
+
+/* CONFIG FORMULÁRIO */
+.formulario {
+    padding: 40px 4%;
+}
+
+.formulario h1 {
+  color: var(--cor04);
+  font-size: 2.1em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.formulario span {
+  color: var(--cor08);
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+form input, form textarea {
+    width: 100%;
+    background-color: #0F1B26;
+    border: none;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 15px;
+    color: var(--cor04);
+    font-size: 18px;
+}
+
+form textarea {
+    resize: none;
+    height: 200px;
+}
+
+form input::placeholder, form textarea::placeholder {
+    color: var(--cor10);
+}
+
+form .btn-enviar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+form .btn-enviar input {
+    width: 120px;
+    background-color: var(--cor08);
+    color: var(--cor01);
+    font-weight: 700;
+    cursor: pointer;
+    transition: .5s;
+}
+/* CONFIG FORMULÁRIO */
