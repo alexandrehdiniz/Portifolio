@@ -160,7 +160,7 @@ section.inicio {
 .inicio p {
     color: var(--cor04);
     font-size: 19px;
-    text-align: justify;
+    text-align: center;
 }
 
 /* CONFIG INICIO */
