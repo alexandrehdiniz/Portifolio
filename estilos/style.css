@@ -98,9 +98,14 @@ header a {
     display: inline-block;
     transition: 0.5s;
 }
+
 header nav.menu-desktop a:hover {
     color: var(--cor04);
     transform: scale(1.2);
+}
+
+header nav.menu-desktop a span:hover{    
+    box-shadow: 0px 0px 10px var(--cor02);
 }
 
 header nav ul {
@@ -311,19 +316,22 @@ article {
 }
 
 .controls button {
-  background: #5CBDEA;
+  background: var(--cor08);
   border: none;
   padding: 10px 20px;
-  margin: 0 10px;
+  margin: 0 15px;
   border-radius: 8px;
   cursor: pointer;
-  color: #fff;
+  color: var(--cor02);
   font-weight: bold;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
 .controls button:hover {
-  background: #409dc7;
+    background: var(--cor02);
+    color: var(--cor08);
+    border: 1px solid var(--cor08);
+    box-shadow: 0px 0px 5px var(--cor08);
 }
 
 /* CONFIG FORMULÁRIO */
