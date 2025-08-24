@@ -30,21 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCards();
 
     // Scroll suave
-    // document.addEventListener("DOMContentLoaded", function () {
-    //     const links = document.querySelectorAll('a[href^="#"]');
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // bloqueia o comportamento padrão
 
-    //     links.forEach(link => {
-    //         link.addEventListener("click", function (e) {
-    //             e.preventDefault(); // evita o corte seco padrão
-
-    //             const target = document.querySelector(this.getAttribute("href"));
-    //             if (target) {
-    //                 target.scrollIntoView({
-    //                     behavior: "smooth",
-    //                     block: "start"
-    //                 });
-    //             }
-    //         });
-    //     });
-    // });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth', // rolagem suave
+                    block: 'start'      // topo da seção
+                });
+            }
+        });
+    });
 });
