@@ -29,13 +29,13 @@ updateCards();
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault(); // bloqueia o comportamento padrão
+        e.preventDefault();
 
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             target.scrollIntoView({
-                behavior: 'smooth', // rolagem suave
-                block: 'start'      // topo da seção
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     });
@@ -48,9 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeBtn = document.getElementById('close-popup');
 
     form.addEventListener('submit', function(e) {
-        e.preventDefault(); // impede o envio normal
+        e.preventDefault();
 
-        const formData = new FormData(form); // pega os dados do formulário
+        const formData = new FormData(form);
 
         fetch("https://formsubmit.co/ajax/diniz.alexandreh@gmail.com", {
             method: "POST",
@@ -58,9 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data); // opcional: para debug
-            popup.style.display = 'flex'; // mostra popup de sucesso
-            form.reset(); // limpa o formulário
+            console.log(data);
+            popup.style.display = 'flex';
+            form.reset();
         })
         .catch(error => {
             console.error("Erro:", error);
