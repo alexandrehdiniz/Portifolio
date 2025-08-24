@@ -36,6 +36,26 @@ body {
     height: 100vh;
 }
 
+.btn-social button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    color: var(--cor02);
+    background-color: var(--cor08);
+    font-size: 27px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: .5s;
+}
+
+button:hover, form .btn-enviar input:hover {
+    color: var(--cor08);
+    background-color: var(--cor02);
+    box-shadow: 0px 0px 10px var(--cor08);
+    transform: scale(1.1);
+}
+
 .flex {
     display: flex;
 }
@@ -116,25 +136,37 @@ header nav.menu-desktop ul li {
     display: inline-block;
     padding: 0 40px;
 }
-
-.borda {
-    position: relative;
-    padding-bottom: 20px;
-}
-.borda::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--cor09), transparent);
-}
 /* CONFIG HEADER DESKTOP */
+
+/* CONFIG INICIO */
+section.inicio {
+    margin-top: 80px;
+    padding: 40px 4%;
+}
+
+.inicio h1 {
+    text-align: center;
+    color: var(--cor04);
+    font-size: 3.1em;
+    font-weight: 800;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+.inicio span{
+    color: var(--cor08);
+}
+
+.inicio p {
+    color: var(--cor04);
+    font-size: 19px;
+    text-align: justify;
+}
+
+/* CONFIG INICIO */
 
 /* CONFIG SOBRE */
 section.sobre {
-    margin-top: 80px;
     padding: 40px 4%;
 }
 
@@ -330,9 +362,9 @@ article {
 .controls button:hover {
     background: var(--cor02);
     color: var(--cor08);
-    border: 1px solid var(--cor08);
-    box-shadow: 0px 0px 5px var(--cor08);
+    box-shadow: 0px 0px 10px var(--cor08);
 }
+/* CONFIG PROJETOS */
 
 /* CONFIG FORMULÁRIO */
 .formulario {
@@ -387,11 +419,70 @@ form .btn-enviar {
 }
 
 form .btn-enviar input {
-    width: 120px;
+    width: 100px;
+    color: var(--cor02);
     background-color: var(--cor08);
-    color: var(--cor01);
     font-weight: 700;
     cursor: pointer;
     transition: .5s;
 }
 /* CONFIG FORMULÁRIO */
+
+/* CONFIG FOOTER */
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0; /* linha vai aparecer no topo do footer */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--cor09), transparent);
+}
+
+footer {
+    position: relative;
+    padding: 20px 4%;
+}
+
+footer .flex {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line-footer {
+    padding: 15px 0;
+}
+
+.line-footer p {
+    color: var(--cor04);
+}
+
+footer .line-footer p i {
+    color: var(--cor09);
+    font-size: 20px;
+}
+
+footer .line-footer p a {
+    color: var(--cor04);
+    text-decoration: none;
+    cursor: pointer;
+    transition: .5s;
+}
+
+footer .line-footer p a:hover {
+    text-decoration: underline;
+}
+
+.borda {
+    border-top: 2px solid var(--cor09);
+}
+
+.marca {
+    color: var(--cor04);
+}
+
+.marca .flex {
+    justify-content: center;
+    align-items: end;
+}
+/* CONFIG FOOTER */
