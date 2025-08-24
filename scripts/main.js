@@ -40,3 +40,41 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// CÓDIGO DO FORMULÁRIO DE MENSAGEM
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById('form-contato');
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('close-popup');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // impede o envio normal
+
+        const formData = new FormData(form); // pega os dados do formulário
+
+        fetch("https://formsubmit.co/ajax/diniz.alexandreh@gmail.com", {
+            method: "POST",
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // opcional: para debug
+            popup.style.display = 'flex'; // mostra popup de sucesso
+            form.reset(); // limpa o formulário
+        })
+        .catch(error => {
+            console.error("Erro:", error);
+            alert("Houve um erro ao enviar a mensagem. Tente novamente!");
+        });
+    });
+
+    closeBtn.addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(e) {
+        if (e.target == popup) {
+            popup.style.display = 'none';
+        }
+    });
+});

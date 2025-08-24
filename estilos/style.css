@@ -528,3 +528,54 @@ footer .line-footer p a:hover {
     align-items: end;
 }
 /* CONFIG FOOTER */
+
+/* CONFIG POP UP */
+.popup {
+    display: none; /* começa escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: var(--cor01);
+    padding: 30px 40px;
+    border-radius: 15px;
+    text-align: center;
+    color: var(--cor04);
+    position: relative;
+    max-width: 400px;
+}
+
+.popup-content h2 {
+    color: var(--cor08);
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    font-size: 16px;
+}
+/* CONFIG POP UP */
+
+/* CONFIG BOTÃO FECHAR */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--cor08);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: var(--cor04);
+}
+/* CONFIG BOTÃO FECHAR */
