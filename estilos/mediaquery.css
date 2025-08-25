@@ -1,0 +1,173 @@
+@charset "UTF-9";
+
+@media screen and (max-width: 928px) {
+  /* GERAL */
+  body {
+    font-size: 16px;
+  }
+
+  .interface {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header {
+    padding: 15px 2%;
+  }
+
+  header > .interface {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu-desktop {
+    width: 100%;
+    padding: 8px;
+  }
+
+  header nav.menu-desktop ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  header nav.menu-desktop ul li {
+    padding: 0;
+  }
+
+  /* INÍCIO */
+  .inicio h1 {
+    font-size: 2em;
+    line-height: 35px;
+  }
+
+  .inicio p {
+    font-size: 1em;
+    padding: 0 10px;
+  }
+
+  /* SOBRE */
+  .sobre .img-sobre img {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .sobre .txt-sobre h1 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+
+  .sobre .txt-sobre p {
+    text-align: justify;
+    font-size: 1em;
+  }
+
+  .sobre .txt-sobre .btn-social {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ESPECIALIDADES */
+  .especialidades h1 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+
+  .especialidades article {
+    grid-template: 1fr / 1fr;
+    gap: 15px;
+  }
+
+  .especialidades .especialidades-box {
+    text-align: center;
+  }
+
+  .especialidades .especialidades-box .skill {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .especialidades .especialidades-box i {
+    font-size: 40px;
+  }
+
+  /* PROJETOS */
+  .cards-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+  }
+
+  .cards-container::-webkit-scrollbar {
+    display: none; /* oculta scrollbar no mobile */
+  }
+
+  .card {
+    flex: 0 0 85%;
+    position: relative;
+    transform: none !important;
+    opacity: 1 !important;
+    margin-bottom: 0;
+    scroll-snap-align: center;
+  }
+
+  .card img {
+    max-height: 200px;
+  }
+
+  .controls {
+    display: none;
+  }
+
+  /* FORMULÁRIO */
+  form {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  form input,
+  form textarea {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  form .btn-enviar input {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* FOOTER */
+  footer .flex {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .marca .flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* POPUP */
+  .popup-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .popup-content h2 {
+    font-size: 1.5em;
+  }
+
+  .popup-content p {
+    font-size: 1em;
+  }
+}
