@@ -1,6 +1,6 @@
 @charset "UTF-9";
 
-@media screen and (max-width: 828px) {
+@media screen and (max-width: 928px) {
   /* MENU DESKTOP */
   .menu-desktop {
     display: none;
