@@ -23,9 +23,6 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
-
-html {
     scroll-behavior: smooth;
 }
 
@@ -72,23 +69,8 @@ main section {
 
 /* CONFIG HEADER DESKTOP */
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
     padding: 20px 4%;
     background: var(--cor01);
-}
-
-header::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--cor09), transparent);
 }
 
 header > .interface {
@@ -209,8 +191,7 @@ header nav.menu-desktop ul li {
 
 /* CONFIG INICIO */
 section.inicio {
-    margin-top: 80px;
-    padding: 40px 4%;
+    padding: 10px 4%;
 }
 
 .inicio h1 {
@@ -232,6 +213,15 @@ section.inicio {
     text-align: center;
 }
 
+section.inicio::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-bottom: 30px;
+    background: linear-gradient(to right, transparent, var(--cor09), transparent);
+}
+
 section.inicio::after {
     content: "";
     display: block;
@@ -244,7 +234,7 @@ section.inicio::after {
 
 /* CONFIG SOBRE */
 section.sobre {
-    padding: 40px 4%;
+    padding: 30px 4%;
 }
 
 section.sobre .flex {
