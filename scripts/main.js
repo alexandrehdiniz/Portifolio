@@ -1,82 +1,71 @@
-let btnMenu = document.getElementById("btn-menu")
-let menu = document.getElementById("menu-mobile")
-let overlay = document.getElementById("overlay-menu")
+document.addEventListener('DOMContentLoaded', () => {
+    // Efeito de digitação
+    const typingTarget = document.querySelector('[data-typing]');
+    if (typingTarget) {
+        const text = typingTarget.getAttribute('data-typing');
+        let i = 0;
+        const speed = 60;
+        (function type() {
+            typingTarget.textContent = text.slice(0, i);
+            i++;
+            if (i <= text.length) setTimeout(type, speed);
+        })();
+    }
 
-btnMenu.addEventListener("click", () => {
-    menu.classList.add("abrir-menu")
-})
+    // Revelar seções ao rolar
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
 
-menu.addEventListener("click", () => {
-    menu.classList.remove("abrir-menu")
-})
+    document.querySelectorAll('.reveal, .card').forEach((el) => observer.observe(el));
 
-overlay.addEventListener("click", () => {
-    menu.classList.remove("abrir-menu")
-})
+    // Atualizar ano no rodapé
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-const cards = document.querySelectorAll(".card");
-let current = 0;
+    // Botão voltar ao topo
+    const toTop = document.querySelector('.to-top');
+    const toggleToTop = () => {
+        const show = window.scrollY > 600;
+        toTop && toTop.classList.toggle('visible', show);
+    };
+    window.addEventListener('scroll', toggleToTop, { passive: true });
+    toggleToTop();
+});
 
-function updateCards() {
-    cards.forEach((card, index) => {
-        card.classList.remove("active", "left", "right");
+(function () {
+    emailjs.init("z5LzFv05BTID71ne5");
+})();
 
-        if (index === current) {
-            card.classList.add("active");
-        } else if (index === (current - 1 + cards.length) % cards.length) {
-            card.classList.add("left");
-        } else if (index === (current + 1) % cards.length) {
-            card.classList.add("right");
-        }
-    });
+function showAlert(message, type = "sucess") {
+    const container = document.getElementById("alert-container");
+
+    const alert = document.createElement("div");
+    alert.className = `alert alert--${type}`;
+    alert.textContent = message;
+
+    container.appendChild(alert);
+
+    setTimeout(() => {
+        alert.remove();
+    }, 3500);
 }
 
-document.getElementById("next").addEventListener("click", () => {
-    current = (current + 1) % cards.length;
-    updateCards();
-});
+document.getElementById("form_contact").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-document.getElementById("prev").addEventListener("click", () => {
-    current = (current - 1 + cards.length) % cards.length;
-    updateCards();
-});
-
-updateCards();
-
-// CÓDIGO DO FORMULÁRIO DE MENSAGEM
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById('form-contato');
-    const popup = document.getElementById('popup');
-    const closeBtn = document.getElementById('close-popup');
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const formData = new FormData(form);
-
-        fetch("https://formsubmit.co/ajax/diniz.alexandreh@gmail.com", {
-            method: "POST",
-            body: formData,
+    emailjs.sendForm("service_lqx07ju", "template_39ms3mr", this)
+        .then(() => {
+            showAlert("Mensagem enviada com sucesso!", "success");
+            this.reset();
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            popup.style.display = 'flex';
-            form.reset();
-        })
-        .catch(error => {
-            console.error("Erro:", error);
-            alert("Houve um erro ao enviar a mensagem. Tente novamente!");
+        .catch((err) => {
+            showAlert("Ops! Algo deu errado, tente novamente.", "error");
+            console.error(err);
         });
-    });
-
-    closeBtn.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
-
-    window.addEventListener('click', function(e) {
-        if (e.target == popup) {
-            popup.style.display = 'none';
-        }
-    });
 });
